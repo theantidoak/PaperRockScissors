@@ -22,7 +22,8 @@ function playRound(playerSelection, computerSelection=computerPlay()) {
     
         let result = playerSelection === 'rock' && computerSelection === 'paper' ? "You Lose! Paper beats Rock" 
         : playerSelection === 'paper' && computerSelection === 'scissors' ? "You Lose! Scissors beats Paper"
-        : playerSelection === 'scissors' && computerSelection === 'rock' ? "You Lose! Rock beats Scissors" : null;
+        : playerSelection === 'scissors' && computerSelection === 'rock' ? "You Lose! Rock beats Scissors" 
+        : null;
 
         para3.textContent = result;
         updateScore(result);
@@ -58,18 +59,18 @@ function playRound(playerSelection, computerSelection=computerPlay()) {
 /* */
 function updateScore(result) {
     if (result.charAt(4) == 'L' || result.charAt(0) == 'T') {
-        para2.textContent = parseInt(para2.textContent) === 0 ? para2.textContent = '1' 
-        : parseInt(para2.textContent) === 1 ? para2.textContent = '2'
-        : parseInt(para2.textContent) === 2 ? para2.textContent = '3'
-        : parseInt(para2.textContent) === 3 ? para2.textContent = '4'
-        : parseInt(para2.textContent) === 4 ? para2.textContent = '5'
+        para2.textContent = para2.textContent === '0' ? para2.textContent = '1' 
+        : para2.textContent === '1' ? para2.textContent = '2'
+        : para2.textContent === '2' ? para2.textContent = '3'
+        : para2.textContent === '3' ? para2.textContent = '4'
+        : para2.textContent === '4' ? para2.textContent = '5'
         : null;
     } else if (result.charAt(4) == 'W') {
-        para.textContent = parseInt(para.textContent) === 0 ? para.textContent = '1' 
-        : parseInt(para.textContent) === 1 ? para.textContent = '2'
-        : parseInt(para.textContent) === 2 ? para.textContent = '3'
-        : parseInt(para.textContent) === 3 ? para.textContent = '4'
-        : parseInt(para.textContent) === 4 ? para.textContent = '5'
+        para.textContent = para.textContent === '0' ? para.textContent = '1' 
+        : para.textContent === '1' ? para.textContent = '2'
+        : para.textContent === '2' ? para.textContent = '3'
+        : para.textContent === '3' ? para.textContent = '4'
+        : para.textContent === '4' ? para.textContent = '5'
         : null;
     } else {
         null;
@@ -84,6 +85,8 @@ function game() {
         outcome = playRound();
         console.log(outcome);
     }
+
+    para3.textContent = finalScore();
 
     function finalScore() {
     if (parseInt(para.textContent) === parseInt(para2.textContent)) {

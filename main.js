@@ -81,6 +81,10 @@ function updateScore(result) {
 /* */
 function game() {
 
+
+    para.textContent = 0;
+    para2.textContent = 0;
+
     for (let i = 0; i < 5; i++) {
         outcome = playRound();
         console.log(outcome);

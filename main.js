@@ -4,16 +4,16 @@ let para2 = document.querySelector('.pc');
 let para3 = document.querySelector('.pd');
 let gameButton = document.querySelector('.game');
 
-gameButton.addEventListener('click', game);
+gameButton.addEventListener('click', playGame);
 
 /* This function generates a random answer from the opponent side. */
-function computerPlay() {
+function randomizeCompAnswer() {
   let thing = ['rock', 'paper', 'scissors']
   return thing[Math.floor(Math.random()*thing.length)] 
 }
 
 /* This function prompts an answer from the user, compares the answer to the opponent answer, and gives a result and response.*/
-function playRound(playerSelection, computerSelection=computerPlay()) {
+function playRound(playerSelection, computerSelection=randomizeCompAnswer()) {
 
   playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
 
@@ -72,7 +72,7 @@ function updateScore(result) {
 }
 
 /* This function loops the playRound function five times and gives a final score. */
-function game() {
+function playGame() {
   para.textContent = 0;
   para2.textContent = 0;
 
@@ -81,10 +81,10 @@ function game() {
     console.log(outcome);
   };
 
-  para3.textContent = finalScore();
+  para3.textContent = giveFinalScore();
 
   /* This function gives the player the final message */
-  function finalScore() {
+  function giveFinalScore() {
     if (parseInt(para.textContent) === parseInt(para2.textContent)) {
       return "It's a tie!"
     } else if (parseInt(para.textContent) > parseInt(para2.textContent)) {

@@ -16,40 +16,41 @@ and gives a result and response.*/
 function playRound(playerSelection, computerSelection=randomizeCompAnswer()) {
 
   playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
+  let element = document.getElementById("newLine");
 
   if (playerSelection === 'rock' && computerSelection === 'paper' ||
   playerSelection === 'scissors' && computerSelection === 'rock' ||
   playerSelection === 'paper' && computerSelection === 'scissors') {
     let result =
       playerSelection === 'rock' && computerSelection === 'paper' ?
-      "You Lose! Paper beats Rock" :
+      "You Lose! Paper beats Rock... <br>" :
       playerSelection === 'paper' && computerSelection === 'scissors' ?
-      "You Lose! Scissors beats Paper" :
+      "You Lose! Scissors beats Paper... <br>" :
       playerSelection === 'scissors' && computerSelection === 'rock' ?
-      "You Lose! Rock beats Scissors" :
+      "You Lose! Rock beats Scissors... <br>" :
       null;
-    para3.textContent = result;
+    element.innerHTML += result;
     updateScore(result);
   } else if (playerSelection === 'paper' && computerSelection === 'rock' ||
   playerSelection === 'rock' && computerSelection === 'scissors' ||
   playerSelection === 'scissors' && computerSelection === 'paper') {
     let result =
       playerSelection === 'paper' && computerSelection === 'rock' ?
-      "You Win! Paper beats Rock" :
+      "You Win! Paper beats Rock... <br>" :
       playerSelection === 'rock' && computerSelection === 'scissors' ?
-      "You Win! Rock beats Scissors" :
+      "You Win! Rock beats Scissors... <br>" :
       playerSelection === 'scissors' && computerSelection === 'paper' ?
-      "You Win! Scissors beats Paper" :
+      "You Win! Scissors beats Paper... <br>" :
       null;
-    para3.textContent = result;
+    element.innerHTML += result;
     updateScore(result);
   } else if (playerSelection === computerSelection) {
-    let result = "It's a tie";
-    para3.textContent = result;
+    let result = "It's a tie... <br>";
+    element.innerHTML += result;
     updateScore(result);
   } else { 
-    let result = "That's not how you play the game. Point for Computer.";
-    para3.textContent = result;
+    let result = "That's not how you play the game. Point for Computer... <br>";
+    element.innerHTML += result;
     updateScore(result);
   };
 }
@@ -61,14 +62,14 @@ function updateScore(result) {
     para2.textContent === '1' ? para2.textContent = '2' :
     para2.textContent === '2' ? para2.textContent = '3' :
     para2.textContent === '3' ? para2.textContent = '4' :
-    para2.textContent === '4' ? para2.textContent = '5' :
+    para2.textContent === '4' ? para2.textContent = '5 Woah! That\'s some bad luck...' :
     para2.textContent = "Restart Game";
   } else if (result.charAt(4) == 'W') {
     para.textContent = para.textContent === '0' ? para.textContent = '1' :
     para.textContent === '1' ? para.textContent = '2' :
     para.textContent === '2' ? para.textContent = '3' :
     para.textContent === '3' ? para.textContent = '4' :
-    para.textContent === '4' ? para.textContent = '5' :
+    para.textContent === '4' ? para.textContent = '5 Woah! That\'s some good luck...' :
     para.textContent = "Restart Game";
   } else {
     null;
@@ -78,21 +79,26 @@ function updateScore(result) {
 /* This function gives the player the final message */
 function giveFinalScore() {
   if (parseInt(para.textContent) === parseInt(para2.textContent)) {
-    return "It's a tie!"
+    return "<br>It's a tie!"
   } else if (parseInt(para.textContent) > parseInt(para2.textContent)) {
-    return "You win the game!"
+    return "<br>You win the game!"
   } else if (parseInt(para.textContent) < parseInt(para2.textContent)) {
-    return "You lose. Play again!"
+    return "<br>You lose. Play again!"
   };
 }
 
 /* This function loops the playRound function five times and gives a final score. */
 function playGame() {
+  let element = document.getElementById("newLine");
+    
+  
   para.textContent = 0;
   para2.textContent = 0;
+  element.innerHTML = "Verdict: <br/>";
   for (let i = 0; i < 5; i++) {
     outcome = playRound();
     console.log(outcome);
-    para3.textContent = giveFinalScore(); /* Test this placement again after changing to buttons */
   };
+  element.innerHTML += `${giveFinalScore()}`;
+  
 }

@@ -8,14 +8,19 @@ let computerScore = 0;
 buttons.forEach((button) => button.addEventListener('click', buttonClick));
 newGame.addEventListener('click', restart);
 
-function tran() {
-  this.classList.add('big-active');
-}
+icons.forEach((icon) => icon.addEventListener('transitionend', battleTop));
+emojis.forEach((emoji) => emoji.addEventListener('transitionend', battleBottom));
+
+// function battleTop() {
+//   this.style.transform = 'translate(10px)';
+// }
+
+// function battleBottom(e) {
+//   console.log(e);
+// }
 
 
 function buttonClick() {
-  icons.forEach(icon => icon.classList.remove('active'));
-  emojis.forEach(emoji => emoji.classList.remove('active'));
   icons.forEach(icon => icon.classList.remove('big-active'));
   emojis.forEach(emoji => emoji.classList.remove('big-emoji'));
 
@@ -33,9 +38,7 @@ function buttonClick() {
     console.log('Computer Wins!');
     console.log('Computer Score = ' + ++computerScore);
     }
-    icons.forEach(icon => icon.id == this.value ? icon.classList.add('active') : null);
     icons.forEach(icon => icon.id == this.value ? icon.classList.add('big-active') : null);
-    emojis.forEach(emoji => emoji.id == computerAnswer ? emoji.classList.add('active') : null);
     emojis.forEach(emoji => emoji.id == computerAnswer ? emoji.classList.add('big-emoji') : null);
   if (playerScore == 5 || computerScore == 5) {
     console.log('Game Over');
@@ -47,8 +50,6 @@ function buttonClick() {
 
 function restart() {
   buttons.forEach((button) => button.addEventListener('click', buttonClick));
-  icons.forEach(icon => icon.classList.remove('active'));
-  emojis.forEach(emoji => emoji.classList.remove('active'));
   icons.forEach(icon => icon.classList.remove('big-active'));
   emojis.forEach(emoji => emoji.classList.remove('big-emoji'));
 }

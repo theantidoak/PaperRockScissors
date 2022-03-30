@@ -1,12 +1,7 @@
-html {
-    min-width: 100vw;
-    min-height: 100vh;
-}
 
 .container {
     min-width: 100vw;
     min-height: 100vh;
-    background-color: black;
     margin: -.5rem;
     display: flex;
     justify-content: center;
@@ -20,6 +15,7 @@ html {
     justify-content: center;
     align-items: center;
     flex: 1;
+    gap: 2rem;
 }
 
 .button {
@@ -41,8 +37,12 @@ html {
     font-size: 30px;
 }
 
+.scissorsL, .scissorsR {
+    font-size: 40px;
+}
+
 .rockL, .paperL, .scissorsL {
-    transform: translateX(-100%);
+    transform: translateX(-100%) rotate(180deg);
     transition: all .5s ease;
 }
 
@@ -51,15 +51,26 @@ html {
     transition: all .5s ease;
 }
 
-.active {
-    transform: translateX(0);
-    display: block;
+.big-active.rockL {
+    transform: scale(5) translate(26vh, -1.75vw);
 }
 
-.big-active {
-    transform: scale(5) translate(150px, -90%);
+.big-active.paperL {
+    transform: scale(5) translate(26vh, -2vw);
 }
 
-.big-emoji {
-    transform: scale(5) translate(-150px, 90%);
+.big-active.scissorsL {
+    transform: scale(5) translate(26vh, -2.5vw);
+}
+
+.big-emoji.rockR {
+    transform: scale(5) translate(-26vh, 2.5vw) rotate(180deg);
+}
+
+.big-emoji.paperR {
+    transform: scale(5) translate(-26vh, 2vw) rotate(180deg);
+}
+
+.big-emoji.scissorsR {
+    transform: scale(5) translate(-26vh, 1.25vw) rotate(180deg);
 }

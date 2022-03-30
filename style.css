@@ -44,11 +44,13 @@
 .rockL, .paperL, .scissorsL {
     transform: translateX(-100%) rotate(180deg);
     transition: all .5s ease;
+    margin-top: 0;
 }
 
 .rockR, .paperR, .scissorsR {
     transform: translateX(100%);
     transition: all .5s ease;
+    margin-top: 0;
 }
 
 .big-active.rockL {
@@ -73,4 +75,12 @@
 
 .big-emoji.scissorsR {
     transform: scale(5) translate(-26vh, 1.25vw) rotate(180deg);
+}
+
+.turn-l {
+    transform: rotate(90deg);
+}
+
+.turn-r {
+    transform: rotate(-90deg);
 }

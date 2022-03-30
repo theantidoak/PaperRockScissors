@@ -2,3 +2,17 @@
     display: flex;
     gap: 10px;
 }
+
+.button {
+    font-size: 25px;
+    background-color: blue;
+    padding: 0 3rem;
+}
+
+.buttons > *:nth-child(3) {
+    font-size: 40px;
+}
+
+.rock .paper .scissors {
+    display: none;
+}

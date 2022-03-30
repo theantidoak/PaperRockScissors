@@ -1,6 +1,25 @@
+html {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+.container {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: black;
+    margin: -.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
 .buttons {
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
 }
 
 .button {
@@ -13,6 +32,34 @@
     font-size: 40px;
 }
 
-.rock .paper .scissors {
-    display: none;
+/*Actions*/
+.left-icons {
+    font-size: 30px;
+}
+
+.right-icons {
+    font-size: 30px;
+}
+
+.rockL, .paperL, .scissorsL {
+    transform: translateX(-100%);
+    transition: all .5s ease;
+}
+
+.rockR, .paperR, .scissorsR {
+    transform: translateX(100%);
+    transition: all .5s ease;
+}
+
+.active {
+    transform: translateX(0);
+    display: block;
+}
+
+.big-active {
+    transform: scale(5) translate(150px, -90%);
+}
+
+.big-emoji {
+    transform: scale(5) translate(-150px, 90%);
 }

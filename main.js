@@ -4,6 +4,7 @@ let para2 = document.querySelector('.pc');
 let para3 = document.querySelector('.pd');
 let gameButton = document.querySelector('.game');
 gameButton.addEventListener('click', playGame);
+let element = document.getElementById("newLine");
 
 /* This function generates a random answer from the opponent side. */
 function randomizeCompAnswer() {
@@ -16,7 +17,6 @@ and gives a result and response.*/
 function playRound(playerSelection, computerSelection=randomizeCompAnswer()) {
 
   playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
-  let element = document.getElementById("newLine");
 
   if (playerSelection === 'rock' && computerSelection === 'paper' ||
   playerSelection === 'scissors' && computerSelection === 'rock' ||
@@ -45,11 +45,15 @@ function playRound(playerSelection, computerSelection=randomizeCompAnswer()) {
     element.innerHTML += result;
     updateScore(result);
   } else if (playerSelection === computerSelection) {
-    let result = "It's a tie... <br>";
+    let result = playerSelection === 'rock' && computerSelection === 'rock' ? 
+    "It's a ROCK tie... <br>" : playerSelection === 'paper' && computerSelection === 'paper' ?
+    "It's a PAPER tie... <br>" : playerSelection === 'scissors' && computerSelection === 'scissors' ?
+    "It's a SCISSORS tie... <br>" : null;
     element.innerHTML += result;
     updateScore(result);
   } else { 
-    let result = "That's not how you play the game. Point for Computer... <br>";
+    let result = `That's not how you play the game. 
+      '${playerSelection}' is not an answer. Point for Computer... <br>`;
     element.innerHTML += result;
     updateScore(result);
   };
@@ -102,3 +106,10 @@ function playGame() {
   element.innerHTML += `${giveFinalScore()}`;
   
 }
+
+/* Use element.appendChild(para3) to display each score.
+Step 1: Create the para variable with document.createElement('p')
+Step 2: Create loop with while(), but also try with for().
+Step 3: With each loop, para.textContent = " "
+Step 4: After Everything, Before the next loop, append the para to the div with element.appendChild(para)
+*/

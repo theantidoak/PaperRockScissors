@@ -12,7 +12,7 @@
 
 .player-tally {
     color: rgb(36, 147, 221);
-    transform: translate(30vh, -5%);
+    transform: translate(20vh, -5%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@
 
 .computer-tally {
     color: rgb(36, 147, 221);
-    transform: translate(-30vh, -5%);
+    transform: translate(-20vh, -5%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,6 +79,7 @@
 .actionButtons > :nth-child(3) {
     font-size: 60px;
     transform: translateY(8px);
+    color: #FCE77D;
 }
 
 /*Actions*/
@@ -93,7 +94,7 @@
 
 .scissorsL, .scissorsR {
     font-size: 40px;
-    color: black;
+    color: #FCE77D;
 }
 
 .rockL, .paperL, .scissorsL {
@@ -109,27 +110,27 @@
 }
 
 .big-active.rockL {
-    transform: scale(5) translate(26vh, -1.75vw);
+    transform: scale(5) translate(15vh, -1.75vw);
 }
 
 .big-active.paperL {
-    transform: scale(5) translate(26vh, -2vw);
+    transform: scale(5) translate(16vh, -2vw);
 }
 
 .big-active.scissorsL {
-    transform: scale(5) translate(26vh, -2.5vw);
+    transform: scale(5) translate(16vh, -2.5vw);
 }
 
 .big-emoji.rockR {
-    transform: scale(5) translate(-26vh, 2.5vw) rotate(180deg);
+    transform: scale(5) translate(-16vh, 2.5vw) rotate(180deg);
 }
 
 .big-emoji.paperR {
-    transform: scale(5) translate(-26vh, 2vw) rotate(180deg);
+    transform: scale(5) translate(-16vh, 2vw) rotate(180deg);
 }
 
 .big-emoji.scissorsR {
-    transform: scale(5) translate(-26vh, 1.25vw) rotate(180deg);
+    transform: scale(5) translate(-16vh, 1.25vw) rotate(180deg);
 }
 
 .turn-l {

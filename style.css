@@ -1,4 +1,8 @@
 
+html {
+    overflow: hidden;
+}
+
 .container {
     background-color: #F96167;
     min-width: 100vw;

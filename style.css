@@ -110,27 +110,27 @@
 }
 
 .big-active.rockL {
-    transform: scale(5) translate(11vh, -1.75vw);
+    transform: scale(5) translate(21vh, -1.75vw);
 }
 
 .big-active.paperL {
-    transform: scale(5) translate(11vh, -2vw);
+    transform: scale(5) translate(21vh, -2vw);
 }
 
 .big-active.scissorsL {
-    transform: scale(5) translate(11vh, -2.5vw);
+    transform: scale(5) translate(21vh, -2.5vw);
 }
 
 .big-emoji.rockR {
-    transform: scale(5) translate(-11vh, 2.5vw) rotate(180deg);
+    transform: scale(5) translate(-21vh, 2.5vw) rotate(180deg);
 }
 
 .big-emoji.paperR {
-    transform: scale(5) translate(-11vh, 2vw) rotate(180deg);
+    transform: scale(5) translate(-21vh, 2vw) rotate(180deg);
 }
 
 .big-emoji.scissorsR {
-    transform: scale(5) translate(-11vh, 1.25vw) rotate(180deg);
+    transform: scale(5) translate(-21vh, 1.25vw) rotate(180deg);
 }
 
 .turn-l {

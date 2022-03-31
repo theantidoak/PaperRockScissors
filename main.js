@@ -35,8 +35,8 @@ function buttonClick() {
 
   // Move Weapons towards each other to Fight
   setTimeout(() => {
-    icons.forEach(icon => icon.id == this.value ? icon.style.marginTop = '10rem' : null);
-    emojis.forEach(emoji => emoji.id == computerAnswer ? emoji.style.marginTop = '-10rem' : null);
+    icons.forEach(icon => icon.id == this.value ? icon.style.marginTop = '13rem' : null);
+    emojis.forEach(emoji => emoji.id == computerAnswer ? emoji.style.marginTop = '-13rem' : null);
   }, 500);
 
   // End Round

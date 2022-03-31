@@ -1,6 +1,6 @@
 
 .container {
-    background-color: rgb(226, 21, 21);
+    background-color: #F96167;
     min-width: 100vw;
     min-height: 100vh;
     margin: -.5rem;
@@ -11,7 +11,7 @@
 }
 
 .player-tally {
-    color: black;
+    color: rgb(36, 147, 221);
     transform: translate(30vh, -5%);
     display: flex;
     justify-content: center;
@@ -21,7 +21,7 @@
 }
 
 .computer-tally {
-    color: black;
+    color: rgb(36, 147, 221);
     transform: translate(-30vh, -5%);
     display: flex;
     justify-content: center;
@@ -31,6 +31,7 @@
 }
 
 .game {
+    background-color: #FCE77D;
     transform: translateY(1000%);
     height: 100px;
     width: 100px;
@@ -44,12 +45,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: blue;
+    background-color: rgb(36, 147, 221);
 }
 
 .instructions {
     transform: translateY(5vh);
-    color: black;
+    color: #FCE77D;
     z-index: 1;
 }
 
@@ -69,7 +70,7 @@
 
 .button {
     font-size: 35px;
-    background-color: blue;
+    background-color: rgb(36, 147, 221);
     height: 5rem;
     width: 10rem;
     border-radius: 30px;

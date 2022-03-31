@@ -26,8 +26,8 @@ function buttonClick() {
   if (winner) {
     ++playerScore;
   } else if (!winner && computerAnswer != userAnswer) {
-      ++computerScore;
-  }
+    ++computerScore;
+  };
   
   // Transform Weapons to middle and make big
   icons.forEach(icon => icon.id == this.value ? icon.classList.add('big-active') : null);
@@ -39,80 +39,48 @@ function buttonClick() {
     emojis.forEach(emoji => emoji.id == computerAnswer ? emoji.style.marginTop = '-10rem' : null);
   }, 500);
 
-  //End Round
+  // End Round
   setTimeout(() => {
     // Remove Transform
     icons.forEach(icon => icon.style.marginTop = '0');
     emojis.forEach(emoji => emoji.style.marginTop = '0');
     emojis.forEach(emoji => emoji.classList.remove('big-emoji'));
     icons.forEach(icon => icon.classList.remove('big-active'));
-    
-    // Display Result Message
-    if (playerScore == 5 || computerScore == 5) {
-      if (playerScore === 5) {
-        header.textContent = 'Congratulations! You Win!';
-      } else {
-        header.textContent = 'Computer Wins. Better Luck Next Time.';
-      }
-      playerScore = 0;
-      computerScore = 0;
-      buttons.forEach((button) => button.removeEventListener('click', buttonClick));
-      newGame.style.transform = 'translateY(0)';
-    }
-    
+
     // Replace event listener
     buttons.forEach((button) => button.addEventListener('click', buttonClick));
 
     // Track Score
     if (winner) {
       icons.forEach(icon => icon.style.transitionDelay = '.3s');
-      // Get left side icon
       let iconChild = this.cloneNode(true).firstChild;
-      for (i = 0; i < tally.length; i++) {
-        if (tally[3].firstChild) {
-          tally[4].appendChild(iconChild);
-          return;
-        } else if (tally[2].firstChild) {
-          tally[3].appendChild(iconChild);
-          return;
-        } else if (tally[1].firstChild) {
-          tally[2].appendChild(iconChild);
-          return;
-        } else if (tally[0].firstChild) {
-          tally[1].appendChild(iconChild);
-          return;
-        } else {
-          tally[0].appendChild(iconChild);
-          return;
+      for (i = 0; i < tally.length + 1; i++) {
+        if (playerScore == i) {
+          tally[i-1].appendChild(iconChild);
+          tally[i-1].style.backgroundColor = '#FCE77D';
         }
         }
     } else if (!winner && computerAnswer != userAnswer) {
       emojis.forEach(emoji => emoji.style.transitionDelay = '.3s');
-      // Get right side icon
-      let emojiArray = [...emojis].filter(emoji => {
-        if (emoji.id == computerAnswer) {
-          return emoji;
-        }})
-      let emojiChild = emojiArray[0].cloneNode(true).firstChild;
-      for (i = 0; i < tallyR.length; i++) {
-        if (tallyR[3].firstChild) {
-          tallyR[4].appendChild(emojiChild);
-          return;
-        } else if (tallyR[2].firstChild) {
-          tallyR[3].appendChild(emojiChild);
-          return;
-        } else if (tallyR[1].firstChild) {
-          tallyR[2].appendChild(emojiChild);
-          return;
-        } else if (tallyR[0].firstChild) {
-          tallyR[1].appendChild(emojiChild);
-          return;
-        } else {
-          tallyR[0].appendChild(emojiChild);
-          return;
+      let emojiChild = [...emojis].filter(emoji => emoji.id == computerAnswer ? emoji : null)[0].cloneNode(true).firstChild;
+      for (i = 0; i < tallyR.length + 1; i++) {
+        if (computerScore == i) {
+          tallyR[i-1].appendChild(emojiChild);
+          tallyR[i-1].style.backgroundColor = '#FCE77D';
         }
-      }}
-    }, 1200)
+      }};
+
+      // Display Result Message
+    if (playerScore == 5 || computerScore == 5) {
+      playerScore === 5 ? header.textContent = 'Congratulations! You Win!' 
+      : header.textContent = 'Computer Wins. Better Luck Next Time.';
+
+      playerScore = 0;
+      computerScore = 0;
+      buttons.forEach((button) => button.removeEventListener('click', buttonClick));
+      newGame.style.transform = 'translateY(0)';
+    }
+    }, 1200);
       
   // Remove Transition Delay
   emojis.forEach(emoji => emoji.style.transitionDelay = '0s');
@@ -126,15 +94,10 @@ function restart() {
   buttons.forEach((button) => button.addEventListener('click', buttonClick));
   icons.forEach(icon => icon.classList.remove('big-active'));
   emojis.forEach(emoji => emoji.classList.remove('big-emoji'));
-  tally.forEach(tallyl => {
-    if (tallyl.firstChild) {
-      tallyl.removeChild(tallyl.firstChild);
-    }
-  tallyR.forEach(tallyr => {
-    if (tallyr.firstChild) {
-      tallyr.removeChild(tallyr.firstChild);
-    }
-  })})
+  tally.forEach(tallyl => tallyl.firstChild ? tallyl.removeChild(tallyl.firstChild) : null);
+  tallyR.forEach(tallyr => tallyr.firstChild ? tallyr.removeChild(tallyr.firstChild) : null);
+  tally.forEach(tallyl => tallyl.style.backgroundColor = 'rgb(36, 147, 221)');
+  tallyR.forEach(tallyr => tallyr.style.backgroundColor = 'rgb(36, 147, 221)');
 }
 
 //Generate a random answer for the computer

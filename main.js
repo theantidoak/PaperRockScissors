@@ -1,21 +1,54 @@
+const buttons = document.querySelectorAll('.button');
+const newGame = document.querySelector('.game');
+const icons = document.querySelectorAll('.icon');
+const emojis = document.querySelectorAll('.emoji');
+let playerScore = 0;
+let computerScore = 0;
+const tally = document.querySelectorAll('.L');
+const tallyR = document.querySelectorAll('.R');
+const header = document.querySelector('.instructions h1');
 
+<<<<<<< HEAD
 let para = document.querySelector('.pp');
 let para2 = document.querySelector('.pc');
 let para3 = document.querySelector('.pd');
 let gameButton = document.querySelector('.game');
 gameButton.addEventListener('click', playGame);
 let element = document.getElementById("newLine");
+=======
+buttons.forEach((button) => button.addEventListener('click', buttonClick));
+newGame.addEventListener('click', restart);
+>>>>>>> rps-ui
 
-/* This function generates a random answer from the opponent side. */
-function randomizeCompAnswer() {
-  let thing = ['rock', 'paper', 'scissors']
-  return thing[Math.floor(Math.random()*thing.length)] 
-}
+// Play Game
+function buttonClick() {
+  
+  // Remove event listener to prevent playing too fast
+  buttons.forEach((button) => button.removeEventListener('click', buttonClick));
+  const computerAnswer = randomizeCompAnswer();
+  const userAnswer = this.value;
+  const winner = computerAnswer == 'rock' && userAnswer == 'paper' 
+  || computerAnswer == 'paper' && userAnswer == 'scissors'
+  || computerAnswer == 'scissors' && userAnswer == 'rock';
+  
+  // Track Score
+  if (winner) {
+    ++playerScore;
+  } else if (!winner && computerAnswer != userAnswer) {
+    ++computerScore;
+  };
+  
+  // Transform Weapons to middle and make big
+  icons.forEach(icon => icon.id == this.value ? icon.classList.add('big-active') : null);
+  emojis.forEach(emoji => emoji.id == computerAnswer ? emoji.classList.add('big-emoji') : null);
 
-/* This function prompts an answer from the user, compares the answer to the opponent answer, 
-and gives a result and response.*/
-function playRound(playerSelection, computerSelection=randomizeCompAnswer()) {
+  // Move Weapons towards each other to Fight
+  setTimeout(() => {
+    icons.forEach(icon => icon.id == this.value ? icon.style.marginTop = '10rem' : null);
+    emojis.forEach(emoji => emoji.id == computerAnswer ? emoji.style.marginTop = '-10rem' : null);
+  }, 500);
 
+<<<<<<< HEAD
   playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
 
   if (playerSelection === 'rock' && computerSelection === 'paper' ||
@@ -58,39 +91,70 @@ function playRound(playerSelection, computerSelection=randomizeCompAnswer()) {
     updateScore(result);
   };
 }
+=======
+  // End Round
+  setTimeout(() => {
+    // Remove Transform
+    icons.forEach(icon => icon.style.marginTop = '0');
+    emojis.forEach(emoji => emoji.style.marginTop = '0');
+    emojis.forEach(emoji => emoji.classList.remove('big-emoji'));
+    icons.forEach(icon => icon.classList.remove('big-active'));
 
-/* This function updates the score by comparing to an html element. */
-function updateScore(result) {
-  if (result.charAt(4) == 'L' || result.charAt(0) == 'T') {
-    para2.textContent = para2.textContent === '0' ? para2.textContent = '1' :
-    para2.textContent === '1' ? para2.textContent = '2' :
-    para2.textContent === '2' ? para2.textContent = '3' :
-    para2.textContent === '3' ? para2.textContent = '4' :
-    para2.textContent === '4' ? para2.textContent = '5 Woah! That\'s some bad luck...' :
-    para2.textContent = "Restart Game";
-  } else if (result.charAt(4) == 'W') {
-    para.textContent = para.textContent === '0' ? para.textContent = '1' :
-    para.textContent === '1' ? para.textContent = '2' :
-    para.textContent === '2' ? para.textContent = '3' :
-    para.textContent === '3' ? para.textContent = '4' :
-    para.textContent === '4' ? para.textContent = '5 Woah! That\'s some good luck...' :
-    para.textContent = "Restart Game";
-  } else {
-    null;
-  };
+    // Replace event listener
+    buttons.forEach((button) => button.addEventListener('click', buttonClick));
+>>>>>>> rps-ui
+
+    // Track Score
+    if (winner) {
+      icons.forEach(icon => icon.style.transitionDelay = '.3s');
+      let iconChild = this.cloneNode(true).firstChild;
+      for (i = 0; i < tally.length + 1; i++) {
+        if (playerScore == i) {
+          tally[i-1].appendChild(iconChild);
+          tally[i-1].style.backgroundColor = '#FCE77D';
+        }
+        }
+    } else if (!winner && computerAnswer != userAnswer) {
+      emojis.forEach(emoji => emoji.style.transitionDelay = '.3s');
+      let emojiChild = [...emojis].filter(emoji => emoji.id == computerAnswer ? emoji : null)[0].cloneNode(true).firstChild;
+      for (i = 0; i < tallyR.length + 1; i++) {
+        if (computerScore == i) {
+          tallyR[i-1].appendChild(emojiChild);
+          tallyR[i-1].style.backgroundColor = '#FCE77D';
+        }
+      }};
+
+      // Display Result Message
+    if (playerScore == 5 || computerScore == 5) {
+      playerScore === 5 ? header.textContent = 'Congratulations! You Win!' 
+      : header.textContent = 'Computer Wins. Better Luck Next Time.';
+
+      playerScore = 0;
+      computerScore = 0;
+      buttons.forEach((button) => button.removeEventListener('click', buttonClick));
+      newGame.style.transform = 'translateY(0)';
+    }
+    }, 1200);
+      
+  // Remove Transition Delay
+  emojis.forEach(emoji => emoji.style.transitionDelay = '0s');
+  icons.forEach(icon => icon.style.transitionDelay = '0s');
 }
 
-/* This function gives the player the final message */
-function giveFinalScore() {
-  if (parseInt(para.textContent) === parseInt(para2.textContent)) {
-    return "<br>It's a tie!"
-  } else if (parseInt(para.textContent) > parseInt(para2.textContent)) {
-    return "<br>You win the game!"
-  } else if (parseInt(para.textContent) < parseInt(para2.textContent)) {
-    return "<br>You lose. Play again!"
-  };
+// Restart Button to reset game
+function restart() {
+  header.textContent = 'Choose Your Weapon';
+  newGame.style.transform = 'translateY(1000%)';
+  buttons.forEach((button) => button.addEventListener('click', buttonClick));
+  icons.forEach(icon => icon.classList.remove('big-active'));
+  emojis.forEach(emoji => emoji.classList.remove('big-emoji'));
+  tally.forEach(tallyl => tallyl.firstChild ? tallyl.removeChild(tallyl.firstChild) : null);
+  tallyR.forEach(tallyr => tallyr.firstChild ? tallyr.removeChild(tallyr.firstChild) : null);
+  tally.forEach(tallyl => tallyl.style.backgroundColor = 'rgb(36, 147, 221)');
+  tallyR.forEach(tallyr => tallyr.style.backgroundColor = 'rgb(36, 147, 221)');
 }
 
+<<<<<<< HEAD
 /* This function loops the playRound function five times and gives a final score. */
 function playGame() {
   let element = document.getElementById("newLine");
@@ -113,3 +177,10 @@ Step 2: Create loop with while(), but also try with for().
 Step 3: With each loop, para.textContent = " "
 Step 4: After Everything, Before the next loop, append the para to the div with element.appendChild(para)
 */
+=======
+//Generate a random answer for the computer
+function randomizeCompAnswer() {
+  let thing = ['rock', 'paper', 'scissors']
+  return thing[Math.floor(Math.random()*thing.length)] 
+}
+>>>>>>> rps-ui

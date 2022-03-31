@@ -81,8 +81,6 @@ html {
 }
 
 .actionButtons > :nth-child(3) {
-    font-size: 60px;
-    transform: translateY(8px);
     color: #FCE77D;
 }
 

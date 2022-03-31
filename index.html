@@ -2,30 +2,49 @@
 <html lang = 'en'>
     <head>
         <meta charset = 'UTF-8'>
-        <title>Paper, Rock, Scissors</title>
+        <title>Rock Paper Scissors</title>
         <link rel = 'stylesheet' href = 'style.css'>
     </head>
 
     <body>
+        
         <div class='container'>
-            <div class='left-icons'>
+            <div class='left-icons'> 
                 <div class='rockL icon' id='rock'>&#x1FAA8;</div>
                 <div class='paperL icon' id='paper'>&#129531;</div>
                 <div class='scissorsL icon' id='scissors'>&#x2702;</div>
             </div>
-            
+            <div class='player-tally'>
+                <h1 class='player'>Player</h1>
+                <div class='tally L'></div>
+                <div class='tally L'></div>
+                <div class='tally L'></div>
+                <div class='tally L'></div>
+                <div class='tally L'></div>
+            </div>
             <div class='buttons'>
-                <div>
+                <div class='instructions'>
+                    <h1>Choose Your Weapon</h1>
+                </div>
+                <div class='actionButtons'>
                     <button class='button' value='rock' name='rock'>&#x1FAA8;</button>
                     <button class='button' value='paper' name='paper'>&#129531;</button>
                     <button class='button' value='scissors' name='scissors'>&#x2702;</button>
                 </div>
                 <div>
-                    <button class='game'>New Game to 5</button>
+                    <button class='game'>New Game</button>
                 </div>
             </div>
 
-            <div class='right-icons'>
+            <div class='computer-tally'>
+                <h1 class='computer'>Computer</h1>
+                <div class='tally R'></div>
+                <div class='tally R'></div>
+                <div class='tally R'></div>
+                <div class='tally R'></div>
+                <div class='tally R'></div>
+            </div>
+            <div class='right-icons'> 
                 <div class='rockR emoji' id='rock'>&#x1FAA8;</div>
                 <div class='paperR emoji' id='paper'>&#129531;</div>
                 <div class='scissorsR emoji' id='scissors'>&#x2702;</div>

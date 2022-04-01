@@ -5,13 +5,12 @@ html {
 
 .container {
     background-color: #F96167;
-    max-width: 101vw;
-    max-height: 101vh;
+    width: 100vw;
+    height: 100vh;
     margin: -.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 1.7rem;
 }
 
 .player-tally {

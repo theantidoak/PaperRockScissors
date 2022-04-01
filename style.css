@@ -1,38 +1,36 @@
 
 html {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .container {
     background-color: #F96167;
-    min-width: 100vw;
-    min-height: 100vh;
+    max-width: 101vw;
+    max-height: 101vh;
     margin: -.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    padding-bottom: 1.7rem;
 }
 
 .player-tally {
     color: rgb(36, 147, 221);
-    transform: translate(0, -5%);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     flex-basis: 50%;
 }
 
 .computer-tally {
     color: rgb(36, 147, 221);
-    transform: translate(0, -5%);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap:1.5rem;
+    gap:1rem;
     flex-basis: 50%;
 }
 
@@ -50,7 +48,7 @@ html {
 
 .game {
     background-color: #FCE77D;
-    transform: translateY(1000%);
+    transform: translateX(700%);
     height: 100px;
     width: 100px;
     border-radius: 50%;
@@ -61,7 +59,7 @@ html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .instructions {
@@ -76,6 +74,7 @@ html {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    transform: translateY(10%);
 }
 
 .button {

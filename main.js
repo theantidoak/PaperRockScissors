@@ -11,6 +11,7 @@ const header = document.querySelector('.instructions h1');
 buttons.forEach((button) => button.addEventListener('click', buttonClick));
 newGame.addEventListener('click', restart);
 
+
 // Play Game
 function buttonClick() {
   

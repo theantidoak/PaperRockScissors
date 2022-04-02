@@ -3,11 +3,14 @@ html {
     overflow-x: hidden;
 }
 
+body {
+    margin: 0;
+}
+
 .container {
     background-color: #F96167;
     width: 100vw;
     height: 100vh;
-    margin: -.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +23,7 @@ html {
     align-items: center;
     flex-direction: column;
     gap: 1rem;
-    flex-basis: 50%;
+    flex-basis: 75%;
 }
 
 .computer-tally {
@@ -29,8 +32,8 @@ html {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap:1rem;
-    flex-basis: 50%;
+    gap: 1rem;
+    flex-basis: 75%;
 }
 
 .tally {
@@ -59,6 +62,7 @@ html {
     justify-content: center;
     align-items: center;
     gap: 3rem;
+    flex: 2;
 }
 
 .instructions {
@@ -79,9 +83,10 @@ html {
 .button {
     font-size: 35px;
     background-color: rgb(36, 147, 221);
-    height: 5rem;
-    width: 10rem;
+    height: 4rem;
+    width: 8rem;
     border-radius: 30px;
+    flex: 1 1 0;
 }
 
 .actionButtons > :nth-child(3) {
@@ -117,11 +122,11 @@ html {
 }
 
 .big-active.rockL {
-    transform: scale(5) translate(21vh, -1.75vw);
+    transform: scale(5) translate(21vh, -1.25vw);
 }
 
 .big-active.paperL {
-    transform: scale(5) translate(21vh, -2vw);
+    transform: scale(5) translate(21vh, -1.5vw);
 }
 
 .big-active.scissorsL {
@@ -129,21 +134,13 @@ html {
 }
 
 .big-emoji.rockR {
-    transform: scale(5) translate(-21vh, 2.5vw) rotate(180deg);
+    transform: scale(5) translate(-21vh, 2.75vw) rotate(180deg);
 }
 
 .big-emoji.paperR {
-    transform: scale(5) translate(-21vh, 2vw) rotate(180deg);
+    transform: scale(5) translate(-21vh, 2.25vw) rotate(180deg);
 }
 
 .big-emoji.scissorsR {
-    transform: scale(5) translate(-21vh, 1.25vw) rotate(180deg);
-}
-
-.turn-l {
-    transform: rotate(90deg);
-}
-
-.turn-r {
-    transform: rotate(-90deg);
+    transform: scale(5) translate(-21vh, 1.5vw) rotate(180deg);
 }

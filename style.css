@@ -110,30 +110,30 @@ body {
 }
 
 .scissorsL, .scissorsR {
-    font-size: 40px;
+    font-size: 30px;
     color: #FCE77D;
 }
 
 .big-active.rockL {
-    transform: scale(5) translate(8vw, -3vh);
+    transform: scale(5) translate(9.5vw, -2vh);
 }
 
 .big-active.paperL {
-    transform: scale(5) translate(8vw, -4.5vh);
+    transform: scale(5) translate(9.5vw, -2.5vh);
 }
 
 .big-active.scissorsL {
-    transform: scale(5) translate(8vw, -6.1vh);
+    transform: scale(5) translate(9.5vw, -4vh);
 }
 
 .big-emoji.rockR {
-    transform: scale(5) translate(-8vw, 8vh) rotate(180deg);
+    transform: scale(5) translate(-9.5vw, 9.8vh) rotate(180deg);
 }
 
 .big-emoji.paperR {
-    transform: scale(5) translate(-8vw, 6vh) rotate(180deg);
+    transform: scale(5) translate(-9.5vw, 7vh) rotate(180deg);
 }
 
 .big-emoji.scissorsR {
-    transform: scale(5) translate(-8vw, 4.5vh) rotate(180deg);
+    transform: scale(5) translate(-9.5vw, 5.7vh) rotate(180deg);
 }

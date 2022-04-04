@@ -79,7 +79,7 @@ function buttonClick() {
       playerScore = 0;
       computerScore = 0;
       buttons.forEach((button) => button.removeEventListener('click', buttonClick));
-      newGame.style.transform = 'translateX(0)';
+      newGame.style.display = 'inline-block';
     }
     }, 1200);
       
@@ -91,7 +91,7 @@ function buttonClick() {
 // Restart Button to reset game
 function restart() {
   header.textContent = 'Choose Your Weapon';
-  newGame.style.transform = 'translateX(700%)';
+  newGame.style.display = 'none';
   buttons.forEach((button) => button.addEventListener('click', buttonClick));
   icons.forEach(icon => icon.classList.remove('big-active'));
   emojis.forEach(emoji => emoji.classList.remove('big-emoji'));
